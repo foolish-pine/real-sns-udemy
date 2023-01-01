@@ -1,3 +1,5 @@
+import Home from "./home/Home";
+
 export const App = () => {
-	return <div className="App"></div>;
+	return <Home />;
 };
