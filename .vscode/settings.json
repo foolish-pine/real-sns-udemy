@@ -18,7 +18,7 @@
 	"[scss]": {
 		"editor.formatOnSave": true
 	},
-	"[javascript]": {
+	"[javascript][javascriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true,
 		"javascript.preferences.importModuleSpecifier": "non-relative"
