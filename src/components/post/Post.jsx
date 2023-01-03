@@ -1,9 +1,17 @@
 import { MoreVert } from "@mui/icons-material";
+import { useState } from "react";
 import { Users } from "../../dummyData";
 import "./Post.css";
 
 export const Post = ({ post }) => {
 	const user = Users.filter((user) => user.id === post.userId)[0];
+
+	const [likes, setLikes] = useState(post.like);
+	const [isLiked, setIsLiked] = useState(false);
+	const handleLikes = () => {
+		setLikes(isLiked ? (like) => like - 1 : (like) => like + 1);
+		setIsLiked(!isLiked);
+	};
 
 	return (
 		<div className="post">
@@ -24,9 +32,14 @@ export const Post = ({ post }) => {
 				</div>
 				<div className="postBottom">
 					<div className="postBottomLeft">
-						<img src="/assets/heart.png" alt="" className="likeIcon" />
+						<img
+							src="/assets/heart.png"
+							alt=""
+							className="likeIcon"
+							onClick={handleLikes}
+						/>
 						<span className="postLikeCounter">
-							{post.like}人がいいねを押しました
+							{likes}人がいいねを押しました
 						</span>
 					</div>
 					<div className="postBottomRight">
