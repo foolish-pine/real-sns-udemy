@@ -1,3 +1,90 @@
 .rightbar {
 	flex: 3.5;
 }
+
+.rightbarWrapper {
+	padding: 20px 20px 0 0;
+}
+
+.eventContainer {
+	display: flex;
+	align-items: center;
+}
+
+.starImg {
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+}
+
+.eventText {
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.eventImg {
+	width: 100%;
+	margin: 25px 0;
+	border-radius: 10px;
+}
+
+.rightbarTitle {
+	margin-bottom: 20px;
+}
+
+.rightbarFriendList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.rightbarFriend {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.rightbarProfileImgContainer {
+	position: relative;
+	margin-right: 10px;
+}
+
+.rightbarProfileImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.rightbarUsername {
+	font-weight: 700;
+}
+
+.rightbarOnline {
+	position: absolute;
+	top: -2px;
+	left: 0;
+	width: 12px;
+	height: 12px;
+	background-color: purple;
+	border: 2px solid white;
+	border-radius: 50%;
+}
+
+.promotionTitle {
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.rightbarPromotionImg {
+	width: 85%;
+	margin: 25px 0;
+	border-radius: 10px;
+}
+
+.promotionName {
+	margin-top: -20px;
+	font-size: small;
+	color: #434343;
+}
