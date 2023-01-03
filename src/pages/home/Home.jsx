@@ -1,14 +1,19 @@
+import { RightBar } from "../../components/rightbar/RightBar";
+import { SideBar } from "../../components/sidebar/SideBar";
+import { Timeline } from "../../components/timeline/Timeline";
 import { TopBar } from "../../components/topbar/TopBar";
 
-const Home = () => {
+import "./Home.css";
+
+export const Home = () => {
 	return (
 		<>
 			<TopBar />
-			{/* <SideBar /> */}
-			{/* <Timeline /> */}
-			{/* <RightBar /> */}
+			<div className="homeContainer">
+				<SideBar />
+				<Timeline />
+				<RightBar />
+			</div>
 		</>
 	);
 };
-
-export default Home;
