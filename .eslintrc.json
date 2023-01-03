@@ -19,6 +19,7 @@
 	"plugins": ["import", "unused-imports", "jsx-a11y", "react", "react-hooks"],
 	"rules": {
 		"import/order": [2, { "alphabetize": { "order": "asc" } }],
-		"unused-imports/no-unused-imports": "error"
+		"unused-imports/no-unused-imports": "error",
+		"react/prop-types": "off"
 	}
 }
