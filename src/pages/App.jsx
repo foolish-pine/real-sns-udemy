@@ -1,5 +1,5 @@
-import { Home } from "./home/Home";
+import { Profile } from "./profile/Profile";
 
 export const App = () => {
-	return <Home />;
+	return <Profile />;
 };
