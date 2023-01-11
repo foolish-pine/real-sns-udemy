@@ -1,13 +1,22 @@
 import { MoreVert } from "@mui/icons-material";
-import { useState } from "react";
-import { Users } from "../../dummyData";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { format } from "timeago.js";
 import "./Post.css";
 
 export const Post = ({ post }) => {
-	const user = Users.filter((user) => user.id === post.userId)[0];
-
-	const [likes, setLikes] = useState(post.like);
+	const [likes, setLikes] = useState(post.likes.length);
 	const [isLiked, setIsLiked] = useState(false);
+	const [user, setUser] = useState({});
+
+	useEffect(() => {
+		const fetchUser = async () => {
+			const response = await axios.get(`/api/users/${post.userId}`);
+			setUser(response.data);
+		};
+		fetchUser();
+	}, []);
+
 	const handleLikes = () => {
 		setLikes(isLiked ? (like) => like - 1 : (like) => like + 1);
 		setIsLiked(!isLiked);
@@ -18,9 +27,13 @@ export const Post = ({ post }) => {
 			<div className="postWrapper">
 				<div className="postTop">
 					<div className="postTopLeft">
-						<img src={user.profilePicture} alt="" className="postProfileImg" />
+						<img
+							src={user.profilePicture || "/assets/person/noAvatar.png"}
+							alt=""
+							className="postProfileImg"
+						/>
 						<span className="postUsername">{user.username}</span>
-						<span className="postDate">{post.date}</span>
+						<span className="postDate">{format(post.createdAt)}</span>
 					</div>
 					<div className="postTopRight">
 						<MoreVert />
@@ -28,7 +41,7 @@ export const Post = ({ post }) => {
 				</div>
 				<div className="postCenter">
 					<span className="postText">{post.desc}</span>
-					<img src={post.photo} alt="" className="postImg" />
+					<img src={"/assets/" + post.img} alt="" className="postImg" />
 				</div>
 				<div className="postBottom">
 					<div className="postBottomLeft">
