@@ -31,7 +31,7 @@ export const Profile = () => {
 						</div>
 					</div>
 					<div className="profileRightBottom">
-						<Timeline />
+						<Timeline username="foolish-pine" />
 						<RightBar profile />
 					</div>
 				</div>

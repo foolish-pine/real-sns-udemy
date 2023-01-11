@@ -43,7 +43,7 @@ export const SideBar = () => {
 					<li className="sidebarListItem">
 						<Person className="sidebarIcon" />
 						<Link
-							to="/profile/pine"
+							to="/profile/foolish-pine"
 							style={{ textDecoration: "none", color: "black" }}
 						>
 							<span className="sidebarListItemText">プロフィール</span>
