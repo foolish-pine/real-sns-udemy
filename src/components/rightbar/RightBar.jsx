@@ -3,7 +3,7 @@ import { Online } from "../online/Online";
 
 import "./RightBar.css";
 
-export const RightBar = ({ profile }) => {
+export const RightBar = ({ user }) => {
 	const HomeRightBar = () => {
 		return (
 			<>
@@ -103,7 +103,7 @@ export const RightBar = ({ profile }) => {
 	return (
 		<div className="rightbar">
 			<div className="rightbarWrapper">
-				{profile ? <ProfileRightBar /> : <HomeRightBar />}
+				{user ? <ProfileRightBar /> : <HomeRightBar />}
 			</div>
 		</div>
 	);
