@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const uploadRoute = require("./routes/upload");
 const userRoute = require("./routes/users");
 const PORT = 3000;
 
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/upload", uploadRoute);
 
 app.listen(PORT, () => {
 	console.log("サーバーが起動しました");
