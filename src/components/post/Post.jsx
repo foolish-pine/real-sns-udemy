@@ -1,13 +1,15 @@
 import { MoreVert } from "@mui/icons-material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { format } from "timeago.js";
+import { AuthContext } from "../../state/AuthContext";
 import "./Post.css";
 
 export const Post = ({ post }) => {
+	const { user: currentUser } = useContext(AuthContext);
 	const [likes, setLikes] = useState(post.likes.length);
-	const [isLiked, setIsLiked] = useState(false);
+	const [isLiked, setIsLiked] = useState(post.likes.includes(currentUser._id));
 	const [user, setUser] = useState({});
 
 	useEffect(() => {
@@ -18,9 +20,16 @@ export const Post = ({ post }) => {
 		fetchUser();
 	}, [post.userId]);
 
-	const handleLikes = () => {
-		setLikes(isLiked ? (like) => like - 1 : (like) => like + 1);
-		setIsLiked(!isLiked);
+	const handleLikes = async () => {
+		try {
+			await axios.put(`http://localhost:3000/api/posts/${post._id}/likes`, {
+				userId: currentUser._id,
+			});
+			setLikes(isLiked ? (like) => like - 1 : (like) => like + 1);
+			setIsLiked(!isLiked);
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
 	return (

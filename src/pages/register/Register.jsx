@@ -6,7 +6,7 @@ import { AuthContext } from "../../state/AuthContext";
 import "./Register.css";
 
 export const Register = () => {
-	const { user, dispatch } = useContext(AuthContext);
+	const { dispatch } = useContext(AuthContext);
 
 	const username = useRef();
 	const email = useRef();

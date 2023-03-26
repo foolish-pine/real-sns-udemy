@@ -1,12 +1,20 @@
 import { Analytics, Face, Gif, Image } from "@mui/icons-material";
+import { useContext } from "react";
+import { AuthContext } from "../../state/AuthContext";
 import "./Share.css";
 
 export const Share = () => {
+	const { user } = useContext(AuthContext);
+
 	return (
 		<div className="share">
 			<div className="shareWrapper">
 				<div className="shareTop">
-					<img src="/assets/person/1.jpeg" alt="" className="shareProfileImg" />
+					<img
+						src={user.profilePicture || "/assets/person/noAvatar.png"}
+						alt=""
+						className="shareProfileImg"
+					/>
 					<input
 						type="text"
 						className="shareInput"
