@@ -22,7 +22,7 @@ export const Post = ({ post }) => {
 
 	const handleLikes = async () => {
 		try {
-			await axios.put(`http://localhost:3000/api/posts/${post._id}/likes`, {
+			await axios.put(`/api/posts/${post._id}/likes`, {
 				userId: currentUser._id,
 			});
 			setLikes(isLiked ? (like) => like - 1 : (like) => like + 1);

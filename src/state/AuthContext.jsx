@@ -12,7 +12,7 @@ const email = localStorage.getItem("email");
 const password = localStorage.getItem("password");
 
 if (email && password) {
-	const response = await axios.post("http://localhost:3000/api/auth/login", {
+	const response = await axios.post("/api/auth/login", {
 		email,
 		password,
 	});

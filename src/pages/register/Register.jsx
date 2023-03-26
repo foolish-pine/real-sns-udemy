@@ -28,7 +28,7 @@ export const Register = () => {
 					password: password.current.value,
 				};
 
-				await axios.post("http://localhost:3000/api/auth/register", newUser);
+				await axios.post("/api/auth/register", newUser);
 
 				loginCall(
 					{

@@ -1,13 +1,30 @@
 import { Analytics, Face, Gif, Image } from "@mui/icons-material";
-import { useContext } from "react";
+import axios from "axios";
+import { useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../state/AuthContext";
 import "./Share.css";
 
 export const Share = () => {
 	const { user } = useContext(AuthContext);
 
+	const navigate = useNavigate();
+	const desc = useRef();
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const newPost = {
+			userId: user._id,
+			desc: desc.current.value,
+		};
+
+		await axios.post("/api/posts/", newPost);
+		navigate(0);
+	};
+
 	return (
-		<div className="share">
+		<form className="share" onSubmit={(e) => handleSubmit(e)}>
 			<div className="shareWrapper">
 				<div className="shareTop">
 					<img
@@ -19,6 +36,7 @@ export const Share = () => {
 						type="text"
 						className="shareInput"
 						placeholder="今何してる？"
+						ref={desc}
 					/>
 				</div>
 				<hr className="shareHr" />
@@ -41,9 +59,11 @@ export const Share = () => {
 							<span className="shareOptionsText">投票</span>
 						</div>
 					</div>
-					<button className="shareButton">投稿</button>
+					<button className="shareButton" type="submit">
+						投稿
+					</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 };
